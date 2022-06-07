@@ -1,0 +1,31 @@
+
+
+// Link for
+https://www.javainterviewpoint.com/spring-boot-jpa-one-to-one-example/
+
+
+use mydb;
+create table tbl_student
+(
+	    id INT NOT NULL,
+        name VARCHAR(50) NOT NULL,
+        PRIMARY KEY(id)
+);
+
+insert into tbl_student (id, name) values(1, 'John');
+insert into tbl_student (id, name) values(2, 'Smith');
+insert into tbl_student (id, name) values(3, 'Tom');
+insert into tbl_student (id, name) values(4, 'Bruce');
+
+ use mydb;
+CREATE TABLE tbl_passport
+(
+	    passport_id INT NOT NULL,
+        number VARCHAR(50) NOT NULL,
+        student_id INT NOT NULL,
+        FOREIGN KEY (student_id) REFERENCES tbl_student (id)
+);
+
+insert into tbl_passport (passport_id, number, student_id) values(1,'A123456', 1);
+insert into tbl_passport (passport_id, number, student_id) values(2, 'B123456', 2);
+insert into tbl_passport (passport_id, number, student_id) values(3, 'C123456', 3);
